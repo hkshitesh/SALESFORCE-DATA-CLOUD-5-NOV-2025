@@ -1,0 +1,6 @@
+transaction_id,customer_id,purchase_date,amount,region,payment_mode
+T1001,C001,2025-10-10,850,East,Credit Card
+T1002,C002,2025-10-12,450,West,Debit Card
+T1003,C001,2025-10-15,25,East,
+T1004,C003,2025-10-18,1200,North,NetBanking
+T1005,C004,2025-10-19,300,South,UPI
