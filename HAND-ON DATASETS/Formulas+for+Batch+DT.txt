@@ -1,0 +1,42 @@
+Stream Formulas-
+1) First Name-
+LEFT( sourceField['name'], FIND(" ", sourceField['name']) )
+2) Last Name - 
+RIGHT( sourceField['name'],  (LEN(sourceField['name'] ) - FIND(" ", sourceField['name']) -1 ) )
+
+Batach Data Transform Formulas-
+1. Gross Total Purchase
+case when email__c IS NOT NUll AND "ZaraStoreData.email__c" IS NOT NULL then Net_Purchase__c + "ZaraStoreData.Net_Purchase__c" when email__c IS NOT NUll then Net_Purchase__c when "ZaraStoreData.email__c" IS NOT NUll then "ZaraStoreData.Net_Purchase__c" else 0 end
+
+2. Format Phone
+IF(char_length(replace(replace(replace(replace(phone__c, ' ', ''), ')', ''), '(', ''), '-', '')) > 10 , concat('+', replace(replace(replace(replace(phone__c, ' ', ''), ')', ''), '(', ''), '-', '')),replace(replace(replace(replace(phone__c, ' ', ''), ')', ''), '(', ''), '-', '') )
+
+3. Formula
+IF(char_length(replace(replace(replace(replace("ZaraStoreData.phone__c", ' ', ''), ')', ''), '(', ''), '-', '')) > 10 , concat('+', replace(replace(replace(replace("ZaraStoreData.phone__c", ' ', ''), ')', ''), '(', ''), '-', '')),replace(replace(replace(replace("ZaraStoreData.phone__c", ' ', ''), ')', ''), '(', ''), '-', '') )
+
+4. Merge First Name
+ coalesce("ZaraStoreData.first_name__c", First_Name__c)
+
+5. Merge Last Name
+ coalesce("ZaraStoreData.last_name__c", Last_Name__c)
+
+6. Merge Country
+ coalesce("ZaraStoreData.country__c", country__c)
+
+7. Merge State
+ coalesce("ZaraStoreData.state__c", region__c)
+
+8. Customer Full Name
+ coalesce("ZaraStoreData.Full_Name__c", name__c)
+
+9. Customer Phone
+ coalesce(Phone_Number_2__c, Phone_Number__c)
+
+10. Customer Email
+ coalesce("ZaraStoreData.email__c", email__c)
+
+11. Customer Age
+ coalesce("ZaraStoreData.Age__c", Age__c)
+
+12. Customer City
+ coalesce("ZaraStoreData.city__c", city__c)
